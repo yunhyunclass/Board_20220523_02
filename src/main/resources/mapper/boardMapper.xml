@@ -4,5 +4,12 @@
 
 
 <mapper namespace="Board">
+    <insert id="save" parameterType="board">
+        insert into board_table(boardWriter, boardPassword, boardTitle, boardContents, boardCreatedDate)
+        values (#{boardWriter}, #{boardPassword}, #{boardTitle}, #{boardContents}, now())
+    </insert>
 
+    <select id="findAll" resultType="board">
+        select * from board_table
+    </select>
 </mapper>
