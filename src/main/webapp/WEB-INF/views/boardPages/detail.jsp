@@ -32,6 +32,7 @@
     const boardDelete = () => {
         // 비밀번호 체크를 위한 화면(passwordCheck.jsp)을 출력하고, 비밀번호 입력받아서
         // 비밀번호 일치하면 삭제처리 후 목록 출력, 일치하지 않으면 alert 띄우고 상세화면으로
+        location.href = "/board/passwordCheck?id=${board.id}";
     }
     const findAll = () => {
         location.href = "/board/findAll";

@@ -50,6 +50,21 @@ public class BoardController {
         return "boardPages/detail";
     }
 
+    // 비밀번호 체크 페이지
+    @GetMapping("/passwordCheck")
+    public String passwordCheck(@RequestParam("id") Long id, Model model) {
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board", boardDTO);
+        return "boardPages/passwordCheck";
+    }
+
+    // 삭제 처리
+    @GetMapping("delete")
+    public String delete(@RequestParam("id") Long id) {
+        boardService.delete(id);
+        return "redirect:/board/findAll";
+    }
+
 
 
 }

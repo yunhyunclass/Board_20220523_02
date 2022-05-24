@@ -21,4 +21,8 @@
         select * from board_table where id=#{id}
     </select>
 
+    <delete id="delete" parameterType="Long">
+        delete from board_table where id=#{id}
+    </delete>
+
 </mapper>
