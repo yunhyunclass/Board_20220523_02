@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -59,11 +60,41 @@ public class BoardController {
     }
 
     // 삭제 처리
-    @GetMapping("delete")
+    @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
         boardService.delete(id);
         return "redirect:/board/findAll";
     }
+
+    // 수정 화면 요청
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id, Model model) {
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("boardUpdate", boardDTO);
+        return "boardPages/update";
+    }
+
+    // 수정 처리
+    @PostMapping("/update")
+    public String update(@ModelAttribute BoardDTO boardDTO) {
+        boardService.update(boardDTO);
+        return "redirect:/board/detail?id="+boardDTO.getId(); // 수정처리 후 해당 글의 상세페이지 요청
+    }
+
+    // 글작성화면(파일)
+    @GetMapping("/saveFile")
+    public String saveFileForm() {
+        return "boardPages/saveFile";
+    }
+
+    // 파일첨부 글작성 처리
+    @PostMapping("/saveFile")
+    public String saveFile(@ModelAttribute BoardDTO boardDTO) throws IOException {
+        boardService.saveFile(boardDTO);
+        return "redirect:/board/findAll";
+    }
+
+
 
 
 
