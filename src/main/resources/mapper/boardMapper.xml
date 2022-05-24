@@ -10,6 +10,15 @@
     </insert>
 
     <select id="findAll" resultType="board">
-        select * from board_table
+        select * from board_table order by id desc
     </select>
+
+    <update id="updateHits" parameterType="Long">
+        update board_table set boardHits=boardHits+1 where id=#{id}
+    </update>
+
+    <select id="findById" parameterType="Long" resultType="board">
+        select * from board_table where id=#{id}
+    </select>
+
 </mapper>

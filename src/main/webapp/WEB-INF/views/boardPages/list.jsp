@@ -22,15 +22,13 @@
             <th>작성자</th>
             <th>제목</th>
             <th>작성시간</th>
-            <th>작성시간(fmt적용)</th>
             <th>조회수</th>
         </tr>
         <c:forEach items="${boardList}" var="board">
             <tr>
                 <td>${board.id}</td>
                 <td>${board.boardWriter}</td>
-                <td>제목클릭하면 상세조회 화면 나오게(보내는 파라미터는 id값)</td>
-                <td>${board.boardCreatedDate}</td>
+                <td><a href="/board/detail?id=${board.id}">${board.boardTitle}</a></td>
                 <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${board.boardCreatedDate}"></fmt:formatDate></td>
                 <td>${board.boardHits}</td>
             </tr>

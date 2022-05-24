@@ -24,6 +24,12 @@ public class BoardService {
     public List<BoardDTO> findAll() {
         return boardRepository.findAll();
     }
+
+    public BoardDTO findById(Long id) {
+        // 1. 조회수 증가, 2. 상세정보 가져오기
+        boardRepository.updateHits(id);
+        return boardRepository.findById(id);
+    }
 }
 
 
