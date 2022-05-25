@@ -48,4 +48,19 @@ public class BoardRepository {
         return sql.selectList("Board.pagingList", pagingParam);
     }
 
+    public List<BoardDTO> search(Map<String, String> searchParam) {
+        return sql.selectList("Board.search", searchParam);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -102,6 +102,14 @@ public class BoardService {
         paging.setMaxPage(maxPage);
         return paging;
     }
+
+    public List<BoardDTO> search(String searchType, String q) {
+        Map<String, String> searchParam = new HashMap<>();
+        searchParam.put("type", searchType);
+        searchParam.put("q", q);
+        List<BoardDTO> searchList = boardRepository.search(searchParam);
+        return searchList;
+    }
 }
 
 
