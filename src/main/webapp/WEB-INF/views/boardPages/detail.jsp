@@ -25,8 +25,12 @@
     <button onclick="boardUpdate()">수정</button>
     <button onclick="boardDelete()">삭제</button>
     <button onclick="findAll()">목록</button>
+    <button onclick="paging()">페이징목록</button>
 </body>
 <script>
+    const paging = () => {
+        location.href = "/board/paging?page=${page}"; // 직전에 있었던 페이지 값을 컨트롤러로 요청
+    }
     const boardUpdate = () => {
         // 수정을 위한 화면(update.jsp)을 출력하고, 비밀번호를 입력받아서
         // 비밀번호 일치하면 수정처리, 일치하지 않으면 alert(회원 수정이랑 프로세스 같음.)
