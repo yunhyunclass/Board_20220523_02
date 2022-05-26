@@ -56,6 +56,8 @@ public class BoardController {
                            @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
+        // 약간 고급지게
+//        model.addAttribute("board", boardService.findById(id));
         model.addAttribute("page", page);
         // 댓글 목록도 가져가야 함.
         List<CommentDTO> commentDTOList = commentService.findAll(id);
