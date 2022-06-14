@@ -1,6 +1,8 @@
 package com.its.board.service;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.Member1DTO;
+import com.its.board.dto.MemberDTO;
 import com.its.board.dto.PageDTO;
 import com.its.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,6 +112,14 @@ public class BoardService {
         searchParam.put("q", q);
         List<BoardDTO> searchList = boardRepository.search(searchParam);
         return searchList;
+    }
+
+    public void joinTest() {
+        System.out.println("BoardService.joinTest");
+        List<Member1DTO> resultList = boardRepository.joinTest();
+        for (Member1DTO m: resultList) {
+            System.out.println("m.toString() = " + m.toString());
+        }
     }
 }
 

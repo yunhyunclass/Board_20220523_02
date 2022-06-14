@@ -131,6 +131,12 @@ public class BoardController {
         return "boardPages/list";
     }
 
+    @GetMapping("/joinTest")
+    public String joinTest() {
+        boardService.joinTest();
+        return "redirect:/";
+    }
+
 
 
 

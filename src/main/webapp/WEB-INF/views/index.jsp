@@ -23,6 +23,9 @@
         const paging = () => {
             location.href = "/board/paging";
         }
+        const join = () => {
+            location.href = "/board/joinTest";
+        }
 
     //    회원가입: /member-save => /member/save
     //    글쓰기 : /board-save   => /board/save
@@ -34,5 +37,6 @@
     <button class="btn btn-outline-success" onclick="saveFileForm()">글작성(파일)</button>
     <button class="btn btn-outline-success" onclick="findAll()">글목록</button>
     <button class="btn btn-outline-success" onclick="paging()">페이징목록</button>
+    <button class="btn btn-outline-success" onclick="join()">조인테스트</button>
 </body>
 </html>

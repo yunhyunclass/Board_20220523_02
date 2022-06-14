@@ -1,6 +1,8 @@
 package com.its.board.repository;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.Member1DTO;
+import com.its.board.dto.MemberDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -50,6 +52,10 @@ public class BoardRepository {
 
     public List<BoardDTO> search(Map<String, String> searchParam) {
         return sql.selectList("Board.search", searchParam);
+    }
+
+    public List<Member1DTO> joinTest() {
+        return sql.selectList("Board.join");
     }
 }
 
